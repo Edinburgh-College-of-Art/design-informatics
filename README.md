@@ -1,2 +1,2 @@
 # design-informatics
-Code associated with Design Informatics projects
+Code associated with Design Informatics student projects
