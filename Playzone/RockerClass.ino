@@ -16,11 +16,11 @@ class rocker
     uint32_t colour;              // LED colour
     
   public:
-    rocker(int p1, int p2, int n1, int n2) : pin1(p1), pin2(p2), note1(n1), note2(n2)
+    rocker(int p1, int p2, int n1, int n2, int c) : pin1(p1), pin2(p2), note1(n1), note2(n2), channel(c)
     {
       noteStart = 0;
       notePlaying = 0;
-      channel = 1;
+//      channel = 1;
       velocity = 127;
 //      colour = (0x000000ff << 16) | (0x00000032 << 8) | 0x00000032;
       colour = 0x00ffffff;
@@ -195,10 +195,10 @@ class rocker
 };
 
 // Instantiate the objects that handle the glass 'rockers'
-rocker rocker5859(PIN_58, PIN_59, NOTE_58, NOTE_59);
-rocker rocker5556(PIN_55, PIN_56, NOTE_55, NOTE_56);
-rocker rocker6265(PIN_62, PIN_65, NOTE_62, NOTE_65);
-rocker rocker6768(PIN_67, PIN_68, NOTE_67, NOTE_68);
+rocker rocker5859(PIN_58, PIN_59, NOTE_58, NOTE_59, 5);
+rocker rocker5556(PIN_55, PIN_56, NOTE_55, NOTE_56, 6);
+rocker rocker6265(PIN_62, PIN_65, NOTE_62, NOTE_65, 7);
+rocker rocker6768(PIN_67, PIN_68, NOTE_67, NOTE_68, 8);
 
 // Map the LED pixels to the glass pieces for each rocker
 void mapGlassRockers()

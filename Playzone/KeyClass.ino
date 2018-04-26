@@ -16,11 +16,10 @@ class key
     uint32_t colour;              // LED colour
     
   public:
-    key(int p, int n) : pin(p), note(n)
+    key(int p, int n, int c) : pin(p), note(n), channel(c)
     {
       noteStart = 0;
       notePlaying = false;
-      channel = 0;
       velocity = 127;
 //      colour = (0x000000ff << 16) | (0x00000032 << 8) | 0x00000032;
       colour = 0x00ffffff;
@@ -143,11 +142,11 @@ class key
 };
 
 // Instantiate the objects that handle the glass 'keys'
-key key60(PIN_60, NOTE_60);
-key key63(PIN_63, NOTE_63);
-key key66(PIN_66, NOTE_66);
-key key70(PIN_70, NOTE_70);
-key key72(PIN_72, NOTE_72);
+key key60(PIN_60, NOTE_60, 0);
+key key63(PIN_63, NOTE_63, 1);
+key key66(PIN_66, NOTE_66, 2);
+key key70(PIN_70, NOTE_70, 3);
+key key72(PIN_72, NOTE_72, 4);
 
 // Map the LED pixels to the glass pieces for each key
 void mapGlassPieces()
